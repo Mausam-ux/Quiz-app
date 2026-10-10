@@ -1,0 +1,30 @@
+
+/* Apply Inter font as the default */
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('Gemini_Generated_Image_ja7bsvja7bsvja7b.png');
+}
+/* Custom styles for answer buttons */
+.option-btn {
+    transition: all 0.3s ease;
+}
+.option-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+/* Correct answer style */
+.option-btn.correct {
+    background-color: #22c55e !important; /* Tailwind green-500 */
+    color: white !important;
+    border-color: #16a34a !important; /* Tailwind green-600 */
+}
+/* Incorrect answer style */
+.option-btn.incorrect {
+    background-color: #ef4444 !important; /* Tailwind red-500 */
+    color: white !important;
+    border-color: #dc2626 !important; /* Tailwind red-600 */
+}

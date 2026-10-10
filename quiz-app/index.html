@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-6 sm:p-10">
+        
+        <!-- Login Screen (NEW) -->
+        <div id="login-screen" class="text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Welcome!</h1>
+            <p class="text-lg text-gray-600 mb-8">Please enter your email to continue.</p>
+            <form id="login-form">
+                <input type="email" id="email-input" placeholder="you@example.com" required
+                       class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <button type="submit" id="login-btn"
+                        class="w-full bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    Continue
+                </button>
+            </form>
+        </div>
+
+        <!-- Name Screen (NEW) -->
+        <div id="name-screen" class="hidden text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">One last step!</h1>
+            <p class="text-lg text-gray-600 mb-8">Please enter your name.</p>
+            <form id="name-form">
+                <input type="text" id="name-input" placeholder="Your Name" required
+                       class="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <button type="submit" id="submit-name-btn"
+                        class="w-full bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                    Submit
+                </button>
+            </form>
+        </div>
+
+        <!-- Start Screen (MODIFIED) -->
+        <div id="start-screen" class="hidden text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Welcome to the Quiz, <span id="user-name-display" class="text-blue-600"></span>!</h1>
+            <p class="text-lg text-gray-600 mb-8">Test your knowledge with these general knowledge questions.</p>
+            <button id="start-btn" class="w-full sm:w-auto bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                Start Quiz
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="hidden">
+            <!-- Question Header -->
+            <div class="mb-6 flex justify-between items-center">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-800" id="question-text">Question goes here...</h2>
+                <span id="question-counter" class="text-lg font-semibold text-gray-500">1 / 10</span>
+            </div>
+
+            <!-- Options Container -->
+            <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <!-- Options will be dynamically inserted here -->
+            </div>
+
+            <!-- Feedback Area -->
+            <div id="feedback-area" class="h-12 text-center text-lg font-medium">
+                <!-- Feedback (e.g., "Correct!" or "Wrong!") appears here -->
+            </div>
+            
+            <!-- Next Button -->
+            <button id="next-btn" class="w-full bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 hidden focus:outline-none focus:ring-4 focus:ring-blue-300">
+                Next
+            </button>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="hidden text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Quiz Completed!</h1>
+            <p class="text-2xl text-gray-600 mb-6">
+                Your final score is:
+                <span id="score-display" class="font-bold text-blue-600 text-3xl block mt-2">0 / 0</span>
+            </p>
+
+            <!-- NEW Score History Section -->
+            <div id="score-history-section" class="mb-8">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-3">Score History</h2>
+                <ul id="score-history-list" class="max-h-32 overflow-y-auto bg-gray-50 rounded-lg p-4 text-gray-600 text-left list-decimal list-inside">
+                    <!-- Scores will be dynamically inserted here, e.g., <li>Game 1: 8 / 10</li> -->
+                    <li id="no-history-msg" class="list-none">No history yet.</li>
+                </ul>
+            </div>
+            
+            <button id="restart-btn" class="w-full sm:w-auto bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                Restart Quiz
+            </button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
